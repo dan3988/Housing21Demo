@@ -1,0 +1,9 @@
+﻿table > * > tr > * {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.table-wrapper {
+	overflow: auto;
+}
