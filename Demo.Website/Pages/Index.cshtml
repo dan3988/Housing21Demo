@@ -24,7 +24,7 @@
                     <td>@item.DateOfBirth</td>
                     <td>@item.EmailAddress</td>
                     <td>@item.Telephone</td>
-                    <td>@(item.Modified ?? item.Created)</td>
+                    <td>@((item.Modified ?? item.Created).ToLocalTime())</td>
                     <td>
                         <a href="/Edit/@item.Id">Edit</a>
                     </td>
