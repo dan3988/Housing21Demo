@@ -1,8 +1,22 @@
-﻿.field-group > .input-group > .input-group-text {
+﻿.field-group > .input-group > .input-group-text,
+.field-group > .validation-wrapper::before {
 	width: 8rem;
+}
+
+.field-group > .validation-wrapper {
+	display: flex;
+}
+
+.field-group > .validation-wrapper::before {
+	content: "";
 }
 
 .field-group {
 	display: flex;
 	flex-direction: column;
+}
+
+.field-group > .validation-wrapper > .validation-message {
+	flex: 1 1 0px;
+	padding: 0 .75rem;
 }

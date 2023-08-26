@@ -12,11 +12,24 @@
 				<input class="form-control" asp-for="Value.FirstName" />
 				<input class="form-control" asp-for="Value.LastName" />
 			</div>
+			<div class="validation-wrapper">
+				<div class="validation-message">
+					<span asp-validation-for="Value.FirstName" class="text-danger"></span>
+				</div>
+				<div class="validation-message">
+					<span asp-validation-for="Value.LastName" class="text-danger"></span>
+				</div>
+			</div>
 		</div>
 		<div class="field-group field-group-multi">
 			<div class="input-group">
 				<span class="input-group-text">Date of Birth</span>
 				<input class="form-control" type="date" asp-for="Value.DateOfBirth" />
+			</div>
+			<div class="validation-wrapper">
+				<div class="validation-message">
+					<span asp-validation-for="Value.DateOfBirth" class="text-danger"></span>
+				</div>
 			</div>
 		</div>
 		<div class="field-group field-group-multi">
@@ -24,11 +37,21 @@
 				<span class="input-group-text">Email Address</span>
 				<input class="form-control" asp-for="Value.EmailAddress" />
 			</div>
+			<div class="validation-wrapper">
+				<div class="validation-message">
+					<span asp-validation-for="Value.EmailAddress" class="text-danger"></span>
+				</div>
+			</div>
 		</div>
 		<div class="field-group field-group-multi">
 			<div class="input-group">
 				<span class="input-group-text">Telephone</span>
 				<input class="form-control" asp-for="Value.Telephone" />
+			</div>
+			<div class="validation-wrapper">
+				<div class="validation-message">
+					<span asp-validation-for="Value.Telephone" class="text-danger"></span>
+				</div>
 			</div>
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>

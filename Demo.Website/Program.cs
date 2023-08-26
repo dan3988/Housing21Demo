@@ -2,12 +2,18 @@ using Demo.Website;
 using Demo.Website.Data;
 using Demo.Website.Interfaces;
 
+using FluentValidation;
+using FluentValidation.AspNetCore;
+
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddValidatorsFromAssemblyContaining(typeof(Program));
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddSingleton<ICurrentUserService>(new CurrentUserService("Website User"));
 builder.Services.AddDbContext<AppDbContext>(opts =>
 {
