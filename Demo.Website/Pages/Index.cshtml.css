@@ -7,3 +7,7 @@
 .table-wrapper {
 	overflow: auto;
 }
+
+.action-sep::before {
+	content: "|"
+}

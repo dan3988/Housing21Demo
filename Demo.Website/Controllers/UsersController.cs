@@ -6,8 +6,10 @@ using CsvHelper.Configuration;
 
 using Demo.Website.Data;
 using Demo.Website.Entities;
+using Demo.Website.Exceptions;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Demo.Website.Controllers;
 
@@ -38,6 +40,19 @@ public sealed class UsersController : BaseApiController
 	public UsersController(ILogger<UsersController> logger, AppDbContext context) : base(logger)
 	{
 		_context = context;
+	}
+
+	[HttpDelete("{id}")]
+	public async Task<IActionResult> DeleteUserAsync(int id, CancellationToken cancellationToken)
+	{
+		var user = await _context.Users.FirstOrDefaultAsync(v => v.Id == id, cancellationToken);
+		if (user == null)
+			throw new NotFoundException(nameof(User), id);
+
+		_context.Users.Remove(user);
+
+		await _context.SaveChangesAsync();
+		return Ok();
 	}
 
 	[HttpGet("csv")]
