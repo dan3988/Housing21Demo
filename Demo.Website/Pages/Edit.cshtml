@@ -1,0 +1,36 @@
+﻿@page "{id:int?}"
+@model EditModel
+@{
+	ViewData["Title"] = "Edit User";
+}
+
+<form class="border rounded edit-form" asp-action="Edit" method="post">
+	<div class="edit-form d-flex flex-column gap-1 p-2">
+		<div class="field-group field-group-multi">
+			<div class="input-group">
+				<span class="input-group-text">Name</span>
+				<input class="form-control" asp-for="Value.FirstName" />
+				<input class="form-control" asp-for="Value.LastName" />
+			</div>
+		</div>
+		<div class="field-group field-group-multi">
+			<div class="input-group">
+				<span class="input-group-text">Date of Birth</span>
+				<input class="form-control" type="date" asp-for="Value.DateOfBirth" />
+			</div>
+		</div>
+		<div class="field-group field-group-multi">
+			<div class="input-group">
+				<span class="input-group-text">Email Address</span>
+				<input class="form-control" asp-for="Value.EmailAddress" />
+			</div>
+		</div>
+		<div class="field-group field-group-multi">
+			<div class="input-group">
+				<span class="input-group-text">Telephone</span>
+				<input class="form-control" asp-for="Value.Telephone" />
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</div>
+</form>

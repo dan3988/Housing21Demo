@@ -1,0 +1,8 @@
+﻿.field-group > .input-group > .input-group-text {
+	width: 8rem;
+}
+
+.field-group {
+	display: flex;
+	flex-direction: column;
+}
