@@ -8,14 +8,14 @@ namespace Demo.Website.Entities.Base;
 public abstract record BaseAuditableEntity : BaseEntity
 {
 	[Column(Order = 1), Required, SqlDefaultValue("GETDATE()")]
-	public DateTime? Created { get; set; }
+	public DateTime Created { get; private set; }
 
 	[Column(Order = 2), Required, MaxLength(255), SqlDefaultValue("CURRENT_USER")]
-	public string? CreatedBy { get; set; }
+	public string? CreatedBy { get; private set; }
 
 	[Column(Order = 3)]
-	public DateTime? Modified { get; set; }
+	public DateTime? Modified { get; private set; }
 
 	[Column(Order = 4), MaxLength(255)]
-	public string? ModifiedBy { get; set; }
+	public string? ModifiedBy { get; private set; }
 }

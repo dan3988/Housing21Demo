@@ -37,16 +37,16 @@ public sealed class AppDbContext : DbContext
 			switch (entry.State)
 			{
 				case EntityState.Added:
-					entry.Entity.Created = DateTime.UtcNow;
-					entry.Entity.CreatedBy = _currentUserService.CurrentUser;
+					entry.Property(v => v.Created).CurrentValue = DateTime.UtcNow;
+					entry.Property(v => v.CreatedBy).CurrentValue = _currentUserService.CurrentUser;
 					entry.Property(v => v.Modified).IsModified = false;
 					entry.Property(v => v.ModifiedBy).IsModified = false;
 					break;
 				case EntityState.Modified:
 					entry.Property(v => v.Created).IsModified = false;
 					entry.Property(v => v.CreatedBy).IsModified = false;
-					entry.Entity.Modified = DateTime.UtcNow;
-					entry.Entity.ModifiedBy = _currentUserService.CurrentUser;
+					entry.Property(v => v.Modified).CurrentValue = DateTime.UtcNow;
+					entry.Property(v => v.ModifiedBy).CurrentValue = _currentUserService.CurrentUser;
 					break;
 			}
 		}
