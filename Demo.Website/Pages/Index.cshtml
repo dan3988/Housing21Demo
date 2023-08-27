@@ -4,28 +4,16 @@
 	ViewData["Title"] = "Users";
 }
 
-@section Scripts {
-	<script type="text/javascript">
-		async function deleteUser(id) {
-			const res = await fetch(`/api/Users/${id}`, {
-				method: "DELETE"
-			});
-
-			if (res.ok) {
-				location.reload();
-			} else {
-				alert("Failed to delete user");
-			}
-		}
-	</script>
+@section StyleSheets {
+	<link rel="stylesheet" href="~/lib/datatables/css/jquery.dataTables.css" />
 }
 
-<div class="table-header d-flex justify-content-end gap-1">
-	<a class="btn btn-outline-primary" href="/Edit">Add New</a>
-	<a class="btn btn-outline-primary" href="/api/Users/csv">Download</a>
-</div>
-<div class="table-wrapper text-center border rounded">
-	<table class="table table-striped table-hover">
+@section Scripts {
+	<script type="text/javascript" src="~/lib/datatables/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="~/js/index.js"></script>
+}
+<div class="table-wrapper text-center ">
+	<table id="table" class="table table-striped table-hover border rounded">
 		<thead>
 			<tr>
 				<th>Name</th>
