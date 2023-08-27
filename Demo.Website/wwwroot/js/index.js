@@ -44,7 +44,7 @@ var dt = $("#table").DataTable({
 			orderable: false
 		},
 	],
-	dom: '<"top d-flex gap-1 pb-1"l<"flex-fill">fr><"table-outer border rounded overflow-scroll"t><"bottom"ip>'
+	dom: '<"top d-flex gap-1 pb-1"l<"flex-fill">fr><"table-outer border rounded overflow-auto"t><"bottom"ip>'
 });
 
 $("#table_wrapper .top").each((i, e) => {
